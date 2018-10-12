@@ -1,0 +1,27 @@
+{% extends "header.html" %}
+{% block content %}
+<h2>Editar de Usuario</h2>
+<div class="col-sm-12 col-md-4">
+  <form class="" action="{% url 'edit' user_id=user.id %}" method="post">
+    {% csrf_token %}
+    <div class="form-group">
+      <input type="hidden" name="{{ user.id }}" value="">
+      <label for="nombre">Nombre:</label>
+      <input class="form-control" type="text" name="nombre" value="{{user.nombre}}" required>
+      <label for="apellido">Apellido:</label>
+      <input class="form-control" type="text" name="apellido" value="{{user.apellido}}" required>
+      <label for="email">Email:</label>
+      <input class="form-control" type="email" name="email" value="{{user.email}}" required>
+      <label for="edad">Edad:</label>
+      <input class="form-control" type="text" name="edad" value="{{user.edad}}" required>
+      <label for="telefono">Tel&eacute;fono:</label>
+      <input class="form-control" type="text" name="telefono" value="{{user.telefono}}" required>
+    </div>
+
+    <button class="btn btn-primary" type="submit" name="button">Enviar</button>
+  </form>
+
+  <a class="btn btn-danger" href="{% url 'delete' user_id=user.id %}">Delete this user.</a> <br>
+  <a class="btn btn-default" href="{% url 'list' %}">Ir a lista de usuarios</a>
+</div>
+{% endblock %}

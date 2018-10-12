@@ -1,0 +1,25 @@
+{% extends "header.html" %}
+{% block content %}
+<h2>Crear Usuario</h2>
+<div class="col-sm-12 col-md-4">
+
+
+  <form class="" action="{% url 'create' %}" method="post">
+    {% csrf_token %}
+    <div class="form-group">
+      <label for="nombre">Nombre:</label>
+      <input class="form-control" type="text" name="nombre" value="" required>
+      <label for="apellido">Apellido:</label>
+      <input class="form-control" type="text" name="apellido" value="" required>
+      <label for="email">Email:</label>
+      <input class="form-control" type="email" name="email" value="" required>
+      <label for="edad">Edad:</label>
+      <input class="form-control" type="text" name="edad" value="" required>
+      <label for="telefono">Tel&eacute;fono:</label>
+      <input class="form-control" type="text" name="telefono" value="" required>
+    </div>
+
+    <button class="btn btn-primary" type="submit" name="button">Submit</button>
+  </form>
+</div>
+{% endblock %}
